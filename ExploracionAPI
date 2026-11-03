@@ -1,0 +1,35 @@
+1. ¿Qué información proporciona el servicio?
+{"latitude":37.785587,"longitude":-3.7349243,"generationtime_ms":0.1386404037475586,"utc_offset_seconds":3600,
+"timezone":"Europe/Madrid","timezone_abbreviation":"GMT+1","elevation":486.0,"daily_units":{"time":"iso8601",
+"temperature_2m_mean":"°C","temperature_2m_max":"°C","temperature_2m_min":"°C"},"daily":{"time":["2025-01-01",
+"2025-01-02","2025-01-03","2025-01-04","2025-01-05","2025-01-06","2025-01-07","2025-01-08","2025-01-09","2025-01-10",
+"2025-01-11","2025-01-12","2025-01-13","2025-01-14","2025-01-15","2025-01-16","2025-01-17","2025-01-18","2025-01-19",
+"2025-01-20","2025-01-21","2025-01-22","2025-01-23","2025-01-24","2025-01-25","2025-01-26","2025-01-27","2025-01-28",
+"2025-01-29","2025-01-30","2025-01-31"],
+"temperature_2m_mean":[7.1,7.3,7.4,8.1,9.5,10.2,7.1,8.3,12.3,10.3,12.0,10.6,6.0,4.3,5.2,5.2,5.1,6.0,6.3,7.5,12.8,14.4,12.6,10.4,10.2,11.3,14.8,9.1,8.1,7.4,6.6],
+"temperature_2m_max":[12.8,12.9,12.9,12.6,15.8,12.0,10.8,15.2,15.7,14.6,14.8,14.1,11.0,10.7,10.9,9.1,11.2,11.1,11.4,13.0,17.5,18.6,17.1,16.0,13.5,17.5,16.8,11.1,11.9,10.5,10.5],
+"temperature_2m_min":[2.4,2.5,3.0,3.9,3.5,7.4,3.1,3.7,9.2,7.0,9.5,7.1,0.9,-1.1,0.0,2.5,0.0,2.2,1.9,2.4,9.1,10.2,9.4,5.8,6.1,4.1,10.3,6.8,3.2,5.2,3.5]}}
+
+2. ¿Qué significa latitude y longitude?
+latitude es la distancia desde la linea del ecuador
+longitude indica la posicion este u oeste tomando como origen el meridiano de Greenwich
+
+3. ¿Qué fechas se están consultando?
+Desde el 1 de enero hasta el 31
+
+4. ¿Qué información solicitan temperature_2m_mean , temperature_2m_max y temperature_2m_min ?
+temperature_2m_mean representa la temperatura promedio del aire medida a 2 metros de altura
+temperature_2m_max representa la temperatura máxima del aire medida a 2 metros de altura
+temperature_2m_min representa la temperatura mínima del aire medida a 2 metros de altura
+
+5. ¿En qué formato se presenta la respuesta?
+Es un diccionario
+
+6. ¿Qué diferencias observas entre esa respuesta y una lista de Python?
+Son tipos de colecciones diferentes, una lista representa una secuencia y un diccionario relaciona claves con valores
+
+7. ¿Qué ocurriría si cambiásemos end_date para consultar hasta el 15 de enero?
+Que la última consulta sería la del 15 de enero
+
+8. ¿Qué ventaja tiene consultar una API frente a introducir los datos manualmente?
+Al consultar una API, esta te devuelve todos los datos que necesitas de forma que se puedan utilizar fácilmente en la aplicación
