@@ -12,8 +12,10 @@ parametros = {
 respuesta = requests.get(url, params=parametros, timeout=30)
 respuesta.raise_for_status()
 datos = respuesta.json()
-diarios = datos.keys()
-print(len(datos["daily"]["time"]))
-print(len(datos["daily"]["temperature_2m_mean"]))
-print(len(datos["daily"]["temperature_2m_max"]))
-print(len(datos["daily"]["temperature_2m_min"]))
+temperaturas = datos['daily']["temperature_2m_mean"]
+temperaturas_maximas = datos['daily']["temperature_2m_max"]
+temperaturas_minimas = datos['daily']["temperature_2m_min"]
+diferencia_maximas = [round(abs(temperatura_maxima - temperatura_media), 1) for temperatura_maxima, temperatura_media in zip(temperaturas_maximas, temperaturas)]
+diferencia_minimas = [round(abs(temperatura_minima - temperatura_media), 1) for temperatura_minima, temperatura_media in zip(temperaturas_minimas, temperaturas)]
+print(diferencia_maximas)
+print(diferencia_minimas)
