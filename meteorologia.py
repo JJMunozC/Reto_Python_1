@@ -12,40 +12,8 @@ parametros = {
 respuesta = requests.get(url, params=parametros, timeout=30)
 respuesta.raise_for_status()
 datos = respuesta.json()
-print(datos)
-
-""" #1. ¿Para qué sirve import requests?
-Para cargar la librería requests
-"""
-
-""" #2. ¿Qué tipo de objeto es parametros?
-Es un diccionario
-"""
-
-""" #3. ¿Qué diferencia hay entre url y parametros?
-url es un str y parametros un diccionario con tipos str
-"""
-
-""" #4. ¿Qué hacen timeout=30 y raise_for_status()?
-timeout cancela la operacion si pasa el tiempo indicado
-raise_for_status comprueba la respuesta de la petición y lanza un error si la petición falla
-"""
-
-""" #5 ¿Qué diferencia hay entre respuesta y datos?
-respuesta es lo que devuelve la petición del request y es de tipo response
-datos es una decompilacion de la respuesta y cambia el tipo de datos en función de lo que contenga la respuesta
-"""
-
-""" #6 ¿Qué podría ocurrir si falla la conexión o el servidor devuelve un error?
-Si fallase la conexión el timeout acabaría deteniendo la ejecución
-Si el servidor devolviese un error lo lanzaría la respuesta al recibirlo
-"""
-
-""" #7 ¿Por qué separamos los parámetros de la dirección URL?
-Porque el GET necesita que le demos la url y los parametros por separado
-"""
-
-""" #8 ¿En qué se diferencia una petición GET de una petición POST?
-Una petición GET pide los datos de una API para consultarlos
-Una petición POST sube los datos a la API para guardarlos en el servidor
-"""
+diarios = datos.keys()
+daily = datos["daily"]
+daily_time = daily["time"]
+daily_temperatura_media = daily["temperature_2m_mean"]
+daily_temperatura_maxima = daily["temperature_2m_max"]
