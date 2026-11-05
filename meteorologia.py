@@ -13,7 +13,7 @@ respuesta = requests.get(url, params=parametros, timeout=30)
 respuesta.raise_for_status()
 datos = respuesta.json()
 diarios = datos.keys()
-daily = datos["daily"]
-daily_time = daily["time"]
-daily_temperatura_media = daily["temperature_2m_mean"]
-daily_temperatura_maxima = daily["temperature_2m_max"]
+print(len(datos["daily"]["time"]))
+print(len(datos["daily"]["temperature_2m_mean"]))
+print(len(datos["daily"]["temperature_2m_max"]))
+print(len(datos["daily"]["temperature_2m_min"]))

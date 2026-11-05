@@ -8,8 +8,7 @@ print(diarios)
 #dict_keys(['latitude', 'longitude', 'generationtime_ms', 'utc_offset_seconds', 'timezone', 'timezone_abbreviation', 'elevation', 'daily_units', 'daily'])
 
 3. ¿Qué unidades se utilizan para la temperatura?
-ºC
-print(datos["daily_units"]) #{'time': 'iso8601', 'temperature_2m_mean': '°C', 'temperature_2m_max': '°C', 'temperature_2m_min': '°C'}
+print(datos["daily_units"]["temperature_2m_mean"]) #ºC
 
 4. ¿Qué tipos de dato devuelven type(datos['daily']) , type(datos['daily']['time']) y type(datos['daily']["temperature_2m_mean"])?
 print(type(datos['daily'])) #<class 'dict'>
@@ -17,24 +16,23 @@ print(type(datos['daily']['time'])) #<class 'list'>
 print(type(datos['daily']["temperature_2m_mean"])) #<class 'list'>
 
 5. ¿Cuántas fechas y temperaturas has obtenido?
-daily = datos["daily"]
-print(len(daily["time"])) #31
-print(len(daily["temperature_2m_mean"])) #31
+print(len(datos["daily"]["time"])) #31
+print(len(datos["daily"]["temperature_2m_mean"])) #31
 
 6. Comprueba que las listas de fechas, temperaturas medias, máximas y mínimas tienen la misma longitud. ¿Por qué deben coincidir?
+print(len(datos["daily"]["time"])) #31
+print(len(datos["daily"]["temperature_2m_mean"])) #31
+print(len(datos["daily"]["temperature_2m_max"])) #31
+print(len(datos["daily"]["temperature_2m_min"])) #31
 Porque hay temperaturas para cada dia registrado
 
 7. Muestra la primera fecha, la temperatura media del primer día y la máxima del último.
-daily = datos["daily"]
-daily_time = daily["time"]
-daily_temperatura_media = daily["temperature_2m_mean"]
-daily_temperatura_maxima = daily["temperature_2m_max"]
-print(daily_time[0]) #2025-01-01
-print(daily_temperatura_media[0]) #7.1
-print(daily_temperatura_maxima[-1]) #10.5
+print(datos["daily"]["time"][0]) #2025-01-01
+print(datos["daily"]["temperature_2m_mean"][0]) #7.1
+print(datos["daily"]["temperature_2m_max"][-1]) #10.5
 
 8. ¿Qué sucede si intentas acceder a una posición que no existe?
-print(daily_time[31]) #IndexError: list index out of range
+print(datos["daily"]["time"][31]) #IndexError: list index out of range
 
 9. ¿Cómo comprobarías si una clave está presente antes de utilizarla?
-print(datos.keys())
+print(clave in datos.keys())
