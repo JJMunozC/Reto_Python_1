@@ -15,9 +15,12 @@ datos = respuesta.json()
 temperaturas = datos['daily']["temperature_2m_mean"]
 temperaturas_maximas = datos['daily']["temperature_2m_max"]
 temperaturas_minimas = datos['daily']["temperature_2m_min"]
-dias_frios = [temperatura for temperatura in temperaturas if temperatura < 10]
-dias_templados = [temperatura for temperatura in temperaturas if temperatura >= 10 and temperatura <= 20]
-dias_calidos = [temperatura for temperatura in temperaturas if temperatura > 20]
-print(dias_frios)
-print(dias_templados)
-print(dias_calidos)
+fechas = datos['daily']['time']
+diccionario = {fecha : {"media" : temperatura_media, "máxima" : temperatura_maxima, "mínima" : temperatura_minima} 
+               for fecha, temperatura_media, temperatura_maxima, temperatura_minima in 
+               zip(fechas, temperaturas, temperaturas_maximas, temperaturas_minimas)}
+media_mas_alta = max(diccionario, key=lambda fecha: diccionario[fecha]["media"])
+print(media_mas_alta)
+
+#amplitud_termica = {fecha : (temperatura_maxima - temperatura_minima) for fecha, _, temperatura_maxima, temperatura_minima in diccionario.items()}
+print(diccionario.items())
