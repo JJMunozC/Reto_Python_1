@@ -1,0 +1,64 @@
+1. Convierte las temperaturas a Fahrenheit.
+temperaturas = datos['daily']["temperature_2m_mean"]
+temperaturas_maximas = datos['daily']["temperature_2m_max"]
+temperaturas_minimas = datos['daily']["temperature_2m_min"]
+temperaturas_media_fahrenheit = [round(temperatura * 9 / 5 + 32, 1) for temperatura in temperaturas]
+temperaturas_maximas_fahrenheit = [round(temperatura * 9 / 5 + 32, 1) for temperatura in temperaturas_maximas]
+temperaturas_minimas_fahrenheit = [round(temperatura * 9 / 5 + 32, 1) for temperatura in temperaturas_minimas]
+print(temperaturas_media_fahrenheit)   #[44.8, 45.1, 45.3, 46.6, 49.1, 50.4, 44.8, 46.9, 54.1, 50.5, 53.6, 51.1, 42.8, 39.7, 41.4, 41.4, 41.2, 42.8, 43.3, 45.5, 55.0, 57.9, 54.7, 50.7, 50.4, 52.3, 58.6, 48.4, 46.6, 45.3, 43.9]
+print(temperaturas_maximas_fahrenheit) #[55.0, 55.2, 55.2, 54.7, 60.4, 53.6, 51.4, 59.4, 60.3, 58.3, 58.6, 57.4, 51.8, 51.3, 51.6, 48.4, 52.2, 52.0, 52.5, 55.4, 63.5, 65.5, 62.8, 60.8, 56.3, 63.5, 62.2, 52.0, 53.4, 50.9, 50.9]
+print(temperaturas_minimas_fahrenheit) #[36.3, 36.5, 37.4, 39.0, 38.3, 45.3, 37.6, 38.7, 48.6, 44.6, 49.1, 44.8, 33.6, 30.0, 32.0, 36.5, 32.0, 36.0, 35.4, 36.3, 48.4, 50.4, 48.9, 42.4, 43.0, 39.4, 50.5, 44.2, 37.8, 41.4, 38.3]
+
+2. Crea listas con temperaturas en dos rangos, un rango con las temperaturas menor o igual a la media y
+otra como superior a la media, usa las temperaturas en ºC.
+temperaturas_menores = [temperatura for temperatura in temperaturas if temperatura <= sum(temperaturas) / len(temperaturas)]
+temperaturas_mayores = [temperatura for temperatura in temperaturas if temperatura > sum(temperaturas) / len(temperaturas)]
+print(temperaturas_menores) #[7.1, 7.3, 7.4, 8.1, 7.1, 8.3, 6.0, 4.3, 5.2, 5.2, 5.1, 6.0, 6.3, 7.5, 8.1, 7.4, 6.6]
+print(temperaturas_mayores) #[9.5, 10.2, 12.3, 10.3, 12.0, 10.6, 12.8, 14.4, 12.6, 10.4, 10.2, 11.3, 14.8, 9.1]
+
+3. Clasifica cada temperatura como inferior, igual o superior a 15 °C.
+temperaturas_medias_menores = [temperatura for temperatura in temperaturas if int(temperatura) < 15]
+temperaturas_medias_mayores = [temperatura for temperatura in temperaturas if int(temperatura) > 15]
+temperaturas_medias_iguales = [temperatura for temperatura in temperaturas if int(temperatura) == 15]
+print(temperaturas_medias_menores) #[7.1, 7.3, 7.4, 8.1, 9.5, 10.2, 7.1, 8.3, 12.3, 10.3, 12.0, 10.6, 6.0, 4.3, 5.2, 5.2, 5.1, 6.0, 6.3, 7.5, 12.8, 14.4, 12.6, 10.4, 10.2, 11.3, 14.8, 9.1, 8.1, 7.4, 6.6]
+print(temperaturas_medias_mayores) #[]
+print(temperaturas_medias_iguales) #[]
+
+temperaturas_maximas_menores = [temperatura for temperatura in temperaturas_maximas if int(temperatura) < 15]
+temperaturas_maximas_mayores = [temperatura for temperatura in temperaturas_maximas if int(temperatura) > 15]
+temperaturas_maximas_iguales = [temperatura for temperatura in temperaturas_maximas if int(temperatura) == 15]
+print(temperaturas_maximas_menores) #[12.8, 12.9, 12.9, 12.6, 12.0, 10.8, 14.6, 14.8, 14.1, 11.0, 10.7, 10.9, 9.1, 11.2, 11.1, 11.4, 13.0, 13.5, 11.1, 11.9, 10.5, 10.5]
+print(temperaturas_maximas_mayores) #[17.5, 18.6, 17.1, 16.0, 17.5, 16.8]
+print(temperaturas_maximas_iguales) #[15.8, 15.2, 15.7]
+
+temperaturas_minimas_menores = [temperatura for temperatura in temperaturas_minimas if int(temperatura) < 15]
+temperaturas_minimas_mayores = [temperatura for temperatura in temperaturas_minimas if int(temperatura) > 15]
+temperaturas_minimas_iguales = [temperatura for temperatura in temperaturas_minimas if int(temperatura) == 15]
+print(temperaturas_minimas_menores) #[2.4, 2.5, 3.0, 3.9, 3.5, 7.4, 3.1, 3.7, 9.2, 7.0, 9.5, 7.1, 0.9, -1.1, 0.0, 2.5, 0.0, 2.2, 1.9, 2.4, 9.1, 10.2, 9.4, 5.8, 6.1, 4.1, 10.3, 6.8, 3.2, 5.2, 3.5]
+print(temperaturas_minimas_mayores) #[]
+print(temperaturas_minimas_iguales) #[]
+
+4. Crea una lista con los índices de los días cuya temperatura media superó los 15 °C.
+indice_temperaturas = [indice for indice, temperatura in enumerate(temperaturas) if temperatura > 15]
+print(indice_temperaturas) #[]
+
+5. Construye tuplas con cada temperatura en Celsius y su equivalente en Fahrenheit.
+tupla_temperaturas_medias = [(temperatura, round(temperatura * 9 / 5 + 32, 1)) for temperatura in temperaturas]
+tupla_temperaturas_maximas = [(temperatura, round(temperatura * 9 / 5 + 32, 1)) for temperatura in temperaturas_maximas]
+tupla_temperaturas_minimas =[(temperatura, round(temperatura * 9 / 5 + 32, 1)) for temperatura in temperaturas_minimas]
+print(tupla_temperaturas_medias)  #[(7.1, 44.8), (7.3, 45.1), (7.4, 45.3), (8.1, 46.6), (9.5, 49.1), (10.2, 50.4), (7.1, 44.8), (8.3, 46.9), (12.3, 54.1), (10.3, 50.5), (12.0, 53.6), (10.6, 51.1), (6.0, 42.8), (4.3, 39.7), (5.2, 41.4), (5.2, 41.4), (5.1, 41.2), (6.0, 42.8), (6.3, 43.3), (7.5, 45.5), (12.8, 55.0), (14.4, 57.9), (12.6, 54.7), (10.4, 50.7), (10.2, 50.4), (11.3, 52.3), (14.8, 58.6), (9.1, 48.4), (8.1, 46.6), (7.4, 45.3), (6.6, 43.9)]
+print(tupla_temperaturas_maximas) #[(12.8, 55.0), (12.9, 55.2), (12.9, 55.2), (12.6, 54.7), (15.8, 60.4), (12.0, 53.6), (10.8, 51.4), (15.2, 59.4), (15.7, 60.3), (14.6, 58.3), (14.8, 58.6), (14.1, 57.4), (11.0, 51.8), (10.7, 51.3), (10.9, 51.6), (9.1, 48.4), (11.2, 52.2), (11.1, 52.0), (11.4, 52.5), (13.0, 55.4), (17.5, 63.5), (18.6, 65.5), (17.1, 62.8), (16.0, 60.8), (13.5, 56.3), (17.5, 63.5), (16.8, 62.2), (11.1, 52.0), (11.9, 53.4), (10.5, 50.9), (10.5, 50.9)]
+print(tupla_temperaturas_minimas) #[(2.4, 36.3), (2.5, 36.5), (3.0, 37.4), (3.9, 39.0), (3.5, 38.3), (7.4, 45.3), (3.1, 37.6), (3.7, 38.7), (9.2, 48.6), (7.0, 44.6), (9.5, 49.1), (7.1, 44.8), (0.9, 33.6), (-1.1, 30.0), (0.0, 32.0), (2.5, 36.5), (0.0, 32.0), (2.2, 36.0), (1.9, 35.4), (2.4, 36.3), (9.1, 48.4), (10.2, 50.4), (9.4, 48.9), (5.8, 42.4), (6.1, 43.0), (4.1, 39.4), (10.3, 50.5), (6.8, 44.2), (3.2, 37.8), (5.2, 41.4), (3.5, 38.3)]
+
+6. Calcula la variación respecto al día anterior.
+variacion_temperatura = [round(abs(temperatura - temperaturas[indice - 1]), 1) for indice, temperatura in enumerate(temperaturas) if indice > 0]
+print(variacion_temperatura) #[0.2, 0.1, 0.7, 1.4, 0.7, 3.1, 1.2, 4.0, 2.0, 1.7, 1.4, 4.6, 1.7, 0.9, 0.0, 0.1, 0.9, 0.3, 1.2, 5.3, 1.6, 1.8, 2.2, 0.2, 1.1, 3.5, 5.7, 1.0, 0.7, 0.8]
+
+7. Define umbrales para clasificar los días como fríos, templados o cálidos y explica tu decisión.
+dias_frios = [temperatura for temperatura in temperaturas if temperatura < 10]
+dias_templados = [temperatura for temperatura in temperaturas if temperatura >= 10 and temperatura <= 20]
+dias_calidos = [temperatura for temperatura in temperaturas if temperatura > 20]
+print(dias_frios) #[7.1, 7.3, 7.4, 8.1, 9.5, 7.1, 8.3, 6.0, 4.3, 5.2, 5.2, 5.1, 6.0, 6.3, 7.5, 9.1, 8.1, 7.4, 6.6]
+print(dias_templados) #[10.2, 12.3, 10.3, 12.0, 10.6, 12.8, 14.4, 12.6, 10.4, 10.2, 11.3, 14.8]
+print(dias_calidos) #[]
+La media es lo que mejor representa la temperatura del dia
