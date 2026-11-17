@@ -16,4 +16,3 @@ temperaturas_medias = datos['daily']["temperature_2m_mean"]
 temperaturas_maximas = datos['daily']["temperature_2m_max"]
 temperaturas_minimas = datos['daily']["temperature_2m_min"]
 fechas = datos['daily']['time']
-
