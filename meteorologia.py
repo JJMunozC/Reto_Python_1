@@ -12,15 +12,15 @@ parametros = {
 respuesta = requests.get(url, params=parametros, timeout=30)
 respuesta.raise_for_status()
 datos = respuesta.json()
-temperaturas = datos['daily']["temperature_2m_mean"]
+temperaturas_medias = datos['daily']["temperature_2m_mean"]
 temperaturas_maximas = datos['daily']["temperature_2m_max"]
 temperaturas_minimas = datos['daily']["temperature_2m_min"]
 fechas = datos['daily']['time']
 diccionario = {fecha : {"media" : temperatura_media, "máxima" : temperatura_maxima, "mínima" : temperatura_minima} 
                for fecha, temperatura_media, temperatura_maxima, temperatura_minima in 
-               zip(fechas, temperaturas, temperaturas_maximas, temperaturas_minimas)}
+               zip(fechas, temperaturas_medias, temperaturas_maximas, temperaturas_minimas)}
 media_mas_alta = max(diccionario, key=lambda fecha: diccionario[fecha]["media"])
 print(media_mas_alta)
 
-#amplitud_termica = {fecha : (temperatura_maxima - temperatura_minima) for fecha, _, temperatura_maxima, temperatura_minima in diccionario.items()}
-print(diccionario.items())
+amplitud_termica = [round(temperaturas["máxima"] - temperaturas["mínima"], 2) for _, temperaturas in diccionario.items()]
+print(amplitud_termica)
