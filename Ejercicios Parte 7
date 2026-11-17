@@ -1,0 +1,10 @@
+Calcula medidas descriptivas para las temperaturas medias, máximas y mínimas.
+Media aritmética:
+media_temperaturas_medias = sum(temperaturas_medias) / len(temperaturas_medias)
+media_temperaturas_maximas = sum(temperaturas_maximas) / len(temperaturas_maximas)
+media_temperaturas_minimas = sum(temperaturas_minimas) / len(temperaturas_minimas)
+print(media_temperaturas_medias) #8.82258064516129
+print(media_temperaturas_maximas) #13.341935483870968
+print(media_temperaturas_minimas) #4.670967741935484
+
+Mediana:

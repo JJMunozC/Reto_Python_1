@@ -17,6 +17,9 @@ temperaturas_maximas = datos['daily']["temperature_2m_max"]
 temperaturas_minimas = datos['daily']["temperature_2m_min"]
 fechas = datos['daily']['time']
 
-diccionario = {fecha : {"media" : temperatura_media, "máxima" : temperatura_maxima, "mínima" : temperatura_minima} 
-                for fecha, temperatura_media, temperatura_maxima, temperatura_minima 
-                in zip(fechas, temperaturas_medias, temperaturas_maximas, temperaturas_minimas)}
+media_temperaturas_medias = sum(temperaturas_medias) / len(temperaturas_medias)
+media_temperaturas_maximas = sum(temperaturas_maximas) / len(temperaturas_maximas)
+media_temperaturas_minimas = sum(temperaturas_minimas) / len(temperaturas_minimas)
+print(media_temperaturas_medias)
+print(media_temperaturas_maximas)
+print(media_temperaturas_minimas)
