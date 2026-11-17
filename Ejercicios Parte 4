@@ -1,26 +1,29 @@
-1. ¿Cuáles son las cinco primeras y las cinco últimas temperaturas?
-print(temperaturas[:5]) #[7.1, 7.3, 7.4, 8.1, 9.5]
-print(temperaturas[-5:]) #[14.8, 9.1, 8.1, 7.4, 6.6]
-
-2. ¿Cuántos valores contiene la lista?
-print(len(temperaturas)) #31
-
-3. ¿Cuál es la diferencia entre la temperatura más alta y la más baja?
-print(f"{max(temperaturas)} - {min(temperaturas)} = {max(temperaturas) - min(temperaturas)}") #14.8 - 4.3 = 10.5
-
-4. ¿Cuántos días superaron los 15 °C? ¿Cuántos estuvieron por debajo de 10 °C?
-print(len([temperatura for temperatura in temperaturas if temperatura > 15])) #0
-print(len([temperatura for temperatura in temperaturas if temperatura < 10])) #19
-
-5. Crea una lista con las temperaturas superiores a 15 °C y otra con temperaturas inferiores a 10 °C.
-superiores_15 = [temperatura for temperatura in temperaturas if temperatura > 15]
-inferiores_10 = [temperatura for temperatura in temperaturas if temperatura < 10]
-print(superiores_15) #[]
-print(inferiores_10) #[7.1, 7.3, 7.4, 8.1, 9.5, 7.1, 8.3, 6.0, 4.3, 5.2, 5.2, 5.1, 6.0, 6.3, 7.5, 9.1, 8.1, 7.4, 6.6]
-
-6. Comprueba si todas las temperaturas son superiores a 0 °C y si alguna supera los 20 °C.
+temperaturas_medias = datos['daily']["temperature_2m_mean"]
 temperaturas_maximas = datos['daily']["temperature_2m_max"]
 temperaturas_minimas = datos['daily']["temperature_2m_min"]
+fechas = datos['daily']['time']
+
+1. ¿Cuáles son las cinco primeras y las cinco últimas temperaturas?
+print(temperaturas_medias[:5]) #[7.1, 7.3, 7.4, 8.1, 9.5]
+print(temperaturas_medias[-5:]) #[14.8, 9.1, 8.1, 7.4, 6.6]
+
+2. ¿Cuántos valores contiene la lista?
+print(len(temperaturas_medias)) #31
+
+3. ¿Cuál es la diferencia entre la temperatura más alta y la más baja?
+print(f"{max(temperaturas_medias)} - {min(temperaturas_medias)} = {max(temperaturas_medias) - min(temperaturas_medias)}") #14.8 - 4.3 = 10.5
+
+4. ¿Cuántos días superaron los 15 °C? ¿Cuántos estuvieron por debajo de 10 °C?
+print(len([temperatura for temperatura in temperaturas_maximas if temperatura > 15])) #9
+print(len([temperatura for temperatura in temperaturas_minimas if temperatura < 10])) #29
+
+5. Crea una lista con las temperaturas superiores a 15 °C y otra con temperaturas inferiores a 10 °C.
+superiores_15 = [temperatura for temperatura in temperaturas_maximas if temperatura > 15]
+inferiores_10 = [temperatura for temperatura in temperaturas_minimas if temperatura < 10]
+print(superiores_15) #[15.8, 15.2, 15.7, 17.5, 18.6, 17.1, 16.0, 17.5, 16.8]
+print(inferiores_10) #[2.4, 2.5, 3.0, 3.9, 3.5, 7.4, 3.1, 3.7, 9.2, 7.0, 9.5, 7.1, 0.9, -1.1, 0.0, 2.5, 0.0, 2.2, 1.9, 2.4, 9.1, 9.4, 5.8, 6.1, 4.1, 6.8, 3.2, 5.2, 3.5]
+
+6. Comprueba si todas las temperaturas son superiores a 0 °C y si alguna supera los 20 °C.
 print(all(temperatura > 0 for temperatura in temperaturas_minimas)) #False
 print(any(temperatura > 20 for temperatura in temperaturas_maximas)) #False
 
