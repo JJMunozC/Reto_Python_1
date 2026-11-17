@@ -16,3 +16,7 @@ temperaturas_medias = datos['daily']["temperature_2m_mean"]
 temperaturas_maximas = datos['daily']["temperature_2m_max"]
 temperaturas_minimas = datos['daily']["temperature_2m_min"]
 fechas = datos['daily']['time']
+
+diccionario = {fecha : {"media" : temperatura_media, "máxima" : temperatura_maxima, "mínima" : temperatura_minima} 
+                for fecha, temperatura_media, temperatura_maxima, temperatura_minima 
+                in zip(fechas, temperaturas_medias, temperaturas_maximas, temperaturas_minimas)}

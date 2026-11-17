@@ -1,7 +1,7 @@
 1. Diccionario completo:
 diccionario = {fecha : {"media" : temperatura_media, "máxima" : temperatura_maxima, "mínima" : temperatura_minima} 
                 for fecha, temperatura_media, temperatura_maxima, temperatura_minima 
-                in zip(fechas, temperaturas, temperaturas_maximas, temperaturas_minimas)}
+                in zip(fechas, temperaturas_medias, temperaturas_maximas, temperaturas_minimas)}
 print(diccionario)
 """
 {'2025-01-01': {'media': 7.1, 'máxima': 12.8, 'mínima': 2.4}, '2025-01-02': {'media': 7.3, 'máxima': 12.9, 'mínima': 2.5}, 
