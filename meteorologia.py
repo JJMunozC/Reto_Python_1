@@ -41,3 +41,5 @@ varianza_temperaturas_minimas = round(sum((temperatura - media_temperaturas_mini
 desviacion_tipica_temperaturas_medias = round(math.sqrt(varianza_temperaturas_medias), 1)
 desviacion_tipica_temperaturas_maximas = round(math.sqrt(varianza_temperaturas_maximas), 1)
 desviacion_tipica_temperaturas_minimas = round(math.sqrt(varianza_temperaturas_minimas), 1)
+
+temperaturas_medias_con_fecha = dict(zip(fechas, temperaturas_medias))
