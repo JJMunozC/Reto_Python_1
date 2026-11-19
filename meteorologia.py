@@ -43,3 +43,5 @@ desviacion_tipica_temperaturas_maximas = round(math.sqrt(varianza_temperaturas_m
 desviacion_tipica_temperaturas_minimas = round(math.sqrt(varianza_temperaturas_minimas), 1)
 
 temperaturas_medias_con_fecha = dict(zip(fechas, temperaturas_medias))
+primera_semana = list(temperaturas_medias_con_fecha.items())[:7]
+segunda_quincena = list(temperaturas_medias_con_fecha.items())[15:]
