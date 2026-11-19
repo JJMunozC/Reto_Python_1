@@ -1,10 +1,63 @@
 Calcula medidas descriptivas para las temperaturas medias, máximas y mínimas.
-Media aritmética:
-media_temperaturas_medias = sum(temperaturas_medias) / len(temperaturas_medias)
-media_temperaturas_maximas = sum(temperaturas_maximas) / len(temperaturas_maximas)
-media_temperaturas_minimas = sum(temperaturas_minimas) / len(temperaturas_minimas)
-print(media_temperaturas_medias) #8.82258064516129
-print(media_temperaturas_maximas) #13.341935483870968
-print(media_temperaturas_minimas) #4.670967741935484
 
-Mediana:
+1.  Media aritmética: es el valor que obtenemos al sumar todas las temperaturas y dividir el resultado entre
+    el número de temperaturas.
+
+media_temperaturas_medias = round(sum(temperaturas_medias) / len(temperaturas_medias), 1)
+media_temperaturas_maximas = round(sum(temperaturas_maximas) / len(temperaturas_maximas), 1)
+media_temperaturas_minimas = round(sum(temperaturas_minimas) / len(temperaturas_minimas), 1)
+print(media_temperaturas_medias) #8.8
+print(media_temperaturas_maximas) #13.3
+print(media_temperaturas_minimas) #4.7
+
+2.  Mediana: es el valor que queda en el centro cuando ordenamos todas las temperaturas de menor a
+    mayor (si tenemos un número impar de temperaturas, la mediana es el valor central, si tenemos un
+    número par, la mediana es la media de los dos valores centrales)
+
+mediana_temperaturas_medias = sorted(temperaturas_medias)[len(temperaturas_medias) // 2]
+mediana_temperaturas_maximas = sorted(temperaturas_maximas)[len(temperaturas_maximas) // 2]
+mediana_temperaturas_minimas = sorted(temperaturas_minimas)[len(temperaturas_minimas) // 2]
+print(mediana_temperaturas_medias) #8.1
+print(mediana_temperaturas_maximas) #12.9
+print(mediana_temperaturas_minimas) #3.7
+
+3.  Valor máximo y mínimo: son, respectivamente, el mayor y el menor valor del conjunto.
+
+mayor_temperatura_media, menor_temperatura_media = max(temperaturas_medias), min(temperaturas_medias)
+mayor_temperatura_maxima, menor_temperatura_maxima = max(temperaturas_maximas), min(temperaturas_maximas)
+mayor_temperatura_minima, menor_temperatura_minima = max(temperaturas_minimas), min(temperaturas_minimas)
+print(f"Temperaturas medias: Mayor {mayor_temperatura_media}, Menor {menor_temperatura_media}")
+#Temperaturas medias: Mayor 14.8, Menor 4.3
+print(f"Temperaturas máximas: Mayor {mayor_temperatura_maxima}, Menor {menor_temperatura_maxima}")
+#Temperaturas máximas: Mayor 18.6, Menor 9.1
+print(f"Temperaturas mínimas: Mayor {mayor_temperatura_minima}, Menor {menor_temperatura_minima}")
+#Temperaturas mínimas: Mayor 10.3, Menor -1.1
+
+4.  Rango: es la diferencia entre el valor máximo y el valor mínimo.
+
+rango_temperatura_media = mayor_temperatura_media - menor_temperatura_media
+rango_temperatura_maxima = mayor_temperatura_maxima - menor_temperatura_maxima
+rango_temperatura_minima = mayor_temperatura_minima - menor_temperatura_minima
+print(rango_temperatura_media) #10.5
+print(rango_temperatura_maxima) #9.5
+print(rango_temperatura_minima) #11.4
+
+5.  Varianza: es una medida que indica cuánto se alejan, en conjunto, los valores respecto a la media, para
+    calcularla, se determina la diferencia entre cada temperatura y la media, se elevan esas diferencias al
+    cuadrado y se calcula su promedio
+
+varianza_temperaturas_medias = round(sum((temperatura - media_temperaturas_medias) ** 2 for temperatura in temperaturas_medias) / len(temperaturas_medias), 1)
+varianza_temperaturas_maximas = round(sum((temperatura - media_temperaturas_maximas) ** 2 for temperatura in temperaturas_maximas) / len(temperaturas_maximas), 1)
+varianza_temperaturas_minimas = round(sum((temperatura - media_temperaturas_minimas) ** 2 for temperatura in temperaturas_minimas) / len(temperaturas_minimas), 1)
+print(varianza_temperaturas_medias) #7.8
+print(varianza_temperaturas_maximas) #6.4
+print(varianza_temperaturas_minimas) #10.1
+
+6.  Desviación típica: es la raíz cuadrada de la varianza. Nos permite medir la dispersión de los valores.
+
+desviacion_tipica_temperaturas_medias = round(math.sqrt(varianza_temperaturas_medias), 1)
+desviacion_tipica_temperaturas_maximas = round(math.sqrt(varianza_temperaturas_maximas), 1)
+desviacion_tipica_temperaturas_minimas = round(math.sqrt(varianza_temperaturas_minimas), 1)
+print(desviacion_tipica_temperaturas_medias) #2.8
+print(desviacion_tipica_temperaturas_maximas) #2.5
+print(desviacion_tipica_temperaturas_minimas) #3.2
